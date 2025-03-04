@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Henry Owens - Data Analytics Portfolio",
+    "section": "",
+    "text": "Hi! I’m a data enthusiast with a passion for turning raw data into meaningful insights. I specialize in data analysis, visualization, and storytelling. This portfolio showcases some of my projects and skills. Stay tuned for more!"
+  },
+  {
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Henry Owens - Data Analytics Portfolio",
+    "section": "",
+    "text": "Hi! I’m a data enthusiast with a passion for turning raw data into meaningful insights. I specialize in data analysis, visualization, and storytelling. This portfolio showcases some of my projects and skills. Stay tuned for more!"
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Henry Owens - Data Analytics Portfolio",
+    "section": "Projects",
+    "text": "Projects\n\nStand by!\nProjects in progress….\nView Project"
+  },
+  {
+    "objectID": "index.html#skills",
+    "href": "index.html#skills",
+    "title": "Henry Owens - Data Analytics Portfolio",
+    "section": "Skills",
+    "text": "Skills\n\nData Analysis: R, Python\nData Visualization: ggplot, Matplotlib, Seaborn, Plotly, Tableau\nDatabases: SQL, PostgreSQL, Big Query, Azure\nMachine Learning: Scikit-learn, TensorFlow (basic)\nTools: Jupyter Notebook, Git, Databricks"
+  },
+  {
+    "objectID": "index.html#contact",
+    "href": "index.html#contact",
+    "title": "Henry Owens - Data Analytics Portfolio",
+    "section": "Contact",
+    "text": "Contact\nReach me at henry.b.owens@gmail.com.\nConnect:\nLinkedIn | GitHub\n\n© 2025 Henry Owens"
+  }
+]
