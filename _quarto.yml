@@ -1,0 +1,21 @@
+project:
+  type: website
+
+website:
+  title: "Henry Owens"
+  site-url: https://hankowens.github.io/
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    toc: true
+
+
+

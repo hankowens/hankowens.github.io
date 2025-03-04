@@ -1,0 +1,37 @@
+---
+title: "Henry Owens - Data Analytics Portfolio"
+---
+
+## About Me {#about}
+
+Hi! I'm a data enthusiast with a passion for turning raw data into meaningful insights. 
+I specialize in data analysis, visualization, and storytelling. 
+This portfolio showcases some of my projects and skills. Stay tuned for more!
+
+## Projects {#projects}
+
+### Stand by! {.project}
+
+Projects in progress....
+
+[View Project](#)
+
+## Skills {#skills}
+
+- **Data Analysis**: R, Python
+- **Data Visualization**: ggplot, Matplotlib, Seaborn, Plotly, Tableau
+- **Databases**: SQL, PostgreSQL, Big Query, Azure
+- **Machine Learning**: Scikit-learn, TensorFlow (basic)
+- **Tools**: Jupyter Notebook, Git, Databricks
+
+## Contact {#contact}
+
+Reach me at [henry.b.owens@gmail.com](mailto:henry.b.owens@gmail.com).
+
+Connect:  
+[LinkedIn](https://www.linkedin.com/in/henry-owens-77980755/) | 
+[GitHub](https://github.com/hankowens)
+
+---
+
+© 2025 Henry Owens
