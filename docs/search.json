@@ -1,49 +1,14 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Henry Owens - Data Analytics Portfolio",
-    "section": "",
-    "text": "Hi! I’m a data enthusiast with a passion for turning raw data into meaningful insights. I specialize in data analysis, visualization, and storytelling. This portfolio showcases some of my projects and skills. Stay tuned for more!"
-  },
-  {
-    "objectID": "index.html#about",
-    "href": "index.html#about",
-    "title": "Henry Owens - Data Analytics Portfolio",
-    "section": "",
-    "text": "Hi! I’m a data enthusiast with a passion for turning raw data into meaningful insights. I specialize in data analysis, visualization, and storytelling. This portfolio showcases some of my projects and skills. Stay tuned for more!"
-  },
-  {
-    "objectID": "index.html#projects",
-    "href": "index.html#projects",
-    "title": "Henry Owens - Data Analytics Portfolio",
-    "section": "Projects",
-    "text": "Projects\n\nStand by!\nProjects in progress….\nView Project"
-  },
-  {
-    "objectID": "index.html#skills",
-    "href": "index.html#skills",
-    "title": "Henry Owens - Data Analytics Portfolio",
-    "section": "Skills",
-    "text": "Skills\n\nData Analysis: R, Python\nData Visualization: ggplot, Matplotlib, Seaborn, Plotly, Tableau\nDatabases: SQL, PostgreSQL, Big Query, Azure\nMachine Learning: Scikit-learn, TensorFlow (basic)\nTools: Jupyter Notebook, Git, Databricks"
-  },
-  {
-    "objectID": "index.html#contact",
-    "href": "index.html#contact",
-    "title": "Henry Owens - Data Analytics Portfolio",
-    "section": "Contact",
-    "text": "Contact\nReach me at henry.b.owens@gmail.com.\nConnect:\nLinkedIn | GitHub\n\n© 2025 Henry Owens"
-  },
-  {
     "objectID": "projects/tidy-tuesday-20250304.html",
     "href": "projects/tidy-tuesday-20250304.html",
+    "title": "Tidy Tuesday 2025-03-04",
+    "section": "",
+    "text": "The dataset comes from the City of Long Beach Animal Care Services via the {animalshelter} R package.\nI did some basic dataviz and ran Chi Squared tests on a few variables. Getting back into the swing of things and buffing up on my Chi Squared assumptions and interpretations. Also this is\nhttps://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-03-04/readme.md"
+  },
+  {
+    "objectID": "projects/tidy-tuesday-20250304.html#long-beach-animal-shelter-data",
+    "href": "projects/tidy-tuesday-20250304.html#long-beach-animal-shelter-data",
     "title": "Tidy Tuesday 2025-03-04",
     "section": "",
     "text": "The dataset comes from the City of Long Beach Animal Care Services via the {animalshelter} R package.\nI did some basic dataviz and ran Chi Squared tests on a few variables. Getting back into the swing of things and buffing up on my Chi Squared assumptions and interpretations. Also this is\nhttps://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-03-04/readme.md"
@@ -56,11 +21,18 @@
     "text": "Reading in the data\n\n\n# A tibble: 6 × 22\n  animal_id animal_name animal_type primary_color secondary_color sex     \n  &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;           &lt;chr&gt;   \n1 A693708   *charlien   dog         white         &lt;NA&gt;            Female  \n2 A708149   &lt;NA&gt;        reptile     brown         green           Unknown \n3 A638068   &lt;NA&gt;        bird        green         red             Unknown \n4 A639310   &lt;NA&gt;        bird        white         gray            Unknown \n5 A618968   *morgan     cat         black         white           Female  \n6 A730385   *brandon    rabbit      black         white           Neutered\n# ℹ 16 more variables: dob &lt;date&gt;, intake_date &lt;date&gt;, intake_condition &lt;chr&gt;,\n#   intake_type &lt;chr&gt;, intake_subtype &lt;chr&gt;, reason_for_intake &lt;chr&gt;,\n#   outcome_date &lt;date&gt;, crossing &lt;chr&gt;, jurisdiction &lt;chr&gt;,\n#   outcome_type &lt;chr&gt;, outcome_subtype &lt;chr&gt;, latitude &lt;dbl&gt;, longitude &lt;dbl&gt;,\n#   outcome_is_dead &lt;lgl&gt;, was_outcome_alive &lt;lgl&gt;, geopoint &lt;chr&gt;"
   },
   {
-    "objectID": "projects/tidy-tuesday-20250304.html#data-cleaning",
-    "href": "projects/tidy-tuesday-20250304.html#data-cleaning",
+    "objectID": "projects/tidy-tuesday-20250304.html#cleaning-data",
+    "href": "projects/tidy-tuesday-20250304.html#cleaning-data",
     "title": "Tidy Tuesday 2025-03-04",
-    "section": "Data cleaning",
-    "text": "Data cleaning\nClean up the two variables (intake_condition, outcome_type) for a Chi Squared test. Making some assumptions here, but want to reduce the number of categories.\n\n# add age\nvet_df &lt;- vet_df %&gt;% \n  filter(!outcome_type %in% c('duplicate', 'missing'), \n         !is.na(outcome_type)) %&gt;% \n  mutate(intake_condition = case_when(str_detect(intake_condition, 'behavior moderate') ~ 'ill moderate',\n                                      str_detect(intake_condition, 'behavior mild') ~ 'ill mild',\n                                      str_detect(intake_condition, 'behavior severe') ~ 'ill severe',\n                                      str_detect(intake_condition, 'intakeexam') ~ 'normal',\n                                      TRUE ~ intake_condition\n                                      ),\n         intake_condition = str_replace(intake_condition, 'moderatete', 'moderate'),\n         outcome_type_clean = case_when(str_detect(outcome_type,'neuter') ~ 'neuter', \n                                   str_detect(outcome_type,'return') ~ 'return', \n                                   str_detect(outcome_type, 'foster') ~ 'adoption',\n                                   # lumping with adoption\n                                   str_detect(outcome_type, 'homefirst') ~ 'adoption', \n                                   # not sure what this means, but lumping with adoption. could be wrong\n                                   str_detect(outcome_type, 'disposal') ~ 'died', \n                                   str_detect(outcome_type, 'community cat') ~ 'return',\n                                   # not sure here, but CATegory violates chisq assumption of no impossible combinations\n                                   TRUE ~ outcome_type),\n      age = difftime(intake_date, dob, units = 'days')/365,\n      stay_length = difftime(intake_date, outcome_date, units = 'days')) \n\n\ncount(vet_df, intake_condition, sort=TRUE)\n\n# A tibble: 13 × 2\n   intake_condition     n\n   &lt;chr&gt;            &lt;int&gt;\n 1 normal           13560\n 2 under age/weight  6534\n 3 injured severe    2094\n 4 ill severe        1377\n 5 ill mild          1248\n 6 injured moderate  1169\n 7 injured mild      1075\n 8 ill moderate      1063\n 9 fractious          648\n10 feral              282\n11 i/i report         235\n12 aged               155\n13 welfare seizures    70\n\n\n\nvet_df %&gt;% \n  filter(intake_type == 'wildlife') %&gt;% \n  count(animal_type, sort = TRUE) \n\n# A tibble: 8 × 2\n  animal_type     n\n  &lt;chr&gt;       &lt;int&gt;\n1 bird         1796\n2 wild         1385\n3 other        1138\n4 reptile       102\n5 rabbit         43\n6 amphibian       1\n7 dog             1\n8 guinea pig      1"
+    "section": "Cleaning Data",
+    "text": "Cleaning Data\nClean up the two variables (intake_condition, outcome_type) for a Chi Squared test. Making some assumptions here, but want to reduce the number of categories."
+  },
+  {
+    "objectID": "projects/tidy-tuesday-20250304.html#inspecting-some-variables",
+    "href": "projects/tidy-tuesday-20250304.html#inspecting-some-variables",
+    "title": "Tidy Tuesday 2025-03-04",
+    "section": "Inspecting some variables:",
+    "text": "Inspecting some variables:\nI want to do chi squared tests and here we look at some of the categorical variables."
   },
   {
     "objectID": "projects/tidy-tuesday-20250304.html#chi-squared-is-there-a-relationship-btw-intake_condition-outcome_type",
@@ -84,24 +56,38 @@
     "text": "Chi Squared: Checking the relationship btw animal_type (ONLY DOG, CAT, BIRD) and outcome_type\nI don’t think think this really fits the Chi squared test requirements, since the animal type and outcome are not really independent. Birds are probably pigeons and wild birds that get injured/fly into buildings are not ever going to be adopted.\n\n\n\n    Pearson's Chi-squared test\n\ndata:  contingency_table3\nX-squared = 6217.8, df = 14, p-value &lt; 2.2e-16"
   },
   {
-    "objectID": "projects/tidy-tuesday-20250304.html#cleaning-data",
-    "href": "projects/tidy-tuesday-20250304.html#cleaning-data",
-    "title": "Tidy Tuesday 2025-03-04",
-    "section": "Cleaning Data",
-    "text": "Cleaning Data\nClean up the two variables (intake_condition, outcome_type) for a Chi Squared test. Making some assumptions here, but want to reduce the number of categories."
-  },
-  {
-    "objectID": "projects/tidy-tuesday-20250304.html#inspecting-some-variables",
-    "href": "projects/tidy-tuesday-20250304.html#inspecting-some-variables",
-    "title": "Tidy Tuesday 2025-03-04",
-    "section": "Inspecting some variables:",
-    "text": "Inspecting some variables:\nI want to do chi squared tests and here we look at some of the categorical variables."
-  },
-  {
-    "objectID": "projects/tidy-tuesday-20250304.html#long-beach-animal-shelter-data",
-    "href": "projects/tidy-tuesday-20250304.html#long-beach-animal-shelter-data",
-    "title": "Tidy Tuesday 2025-03-04",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Henry Owens - Data Analytics Portfolio",
     "section": "",
-    "text": "The dataset comes from the City of Long Beach Animal Care Services via the {animalshelter} R package.\nI did some basic dataviz and ran Chi Squared tests on a few variables. Getting back into the swing of things and buffing up on my Chi Squared assumptions and interpretations. Also this is\nhttps://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-03-04/readme.md"
+    "text": "Hi! I’m building this site to show some of my data analysis projects. Stay tuned for more!"
+  },
+  {
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Henry Owens - Data Analytics Portfolio",
+    "section": "",
+    "text": "Hi! I’m building this site to show some of my data analysis projects. Stay tuned for more!"
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Henry Owens - Data Analytics Portfolio",
+    "section": "Projects",
+    "text": "Projects\n\nStand by!\nProjects in progress….\nView Project"
+  },
+  {
+    "objectID": "index.html#contact",
+    "href": "index.html#contact",
+    "title": "Henry Owens - Data Analytics Portfolio",
+    "section": "Contact",
+    "text": "Contact\nReach me at henry.b.owens@gmail.com.\nConnect:\nLinkedIn | GitHub\n\n© 2025 Henry Owens"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
   }
 ]

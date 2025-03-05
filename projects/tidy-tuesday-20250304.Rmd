@@ -170,7 +170,7 @@ This is indicating a strong overall discrepancy between the observed and expecte
 contingency_df2 <- as.data.frame(contingency_table2)
 ggplot(contingency_df2, aes(x = Var2, y = Var1, fill = Freq)) +
   geom_tile() +
-  labs(title = "Heatmap of Intake Condition vs. Outcome Type",
+  labs(title = "Heatmap of Animal Type vs. Outcome Type",
        x = "Outcome Type",
        y = "Intake Condition") +
   scale_fill_gradient(low = "white", high = "steelblue") +
@@ -204,7 +204,7 @@ print(chi_square_result3)
 contingency_df3 <- as.data.frame(contingency_table3)
 ggplot(contingency_df3, aes(x = Var2, y = Var1, fill = Freq)) +
   geom_tile() +
-  labs(title = "Heatmap of Intake Condition vs. Outcome Type",
+  labs(title = "Heatmap of Animal Type (cat,dog,bird) vs. Outcome Type",
        x = "Outcome Type",
        y = "Intake Condition") +
   scale_fill_gradient(low = "white", high = "steelblue") +
