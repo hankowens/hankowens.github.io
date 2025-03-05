@@ -1,0 +1,212 @@
+---
+title: "Tidy Tuesday 2025-03-04"
+author: "Henry Owens"
+date: "2025-03-04"
+format: html
+toc: true
+
+---
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+library(tidyverse)
+library(ggmosaic)
+library(gtsummary)
+library(lsr)
+library(chisq.posthoc.test)
+library(ggplot2)
+knitr::opts_chunk$set(message = FALSE, echo = FALSE, warning = FALSE)
+```
+
+## Long Beach Animal Shelter data  
+The dataset comes from the City of Long Beach Animal Care Services via the {animalshelter} R package.
+
+I did some basic dataviz and ran Chi Squared tests on a few variables. Getting back into the swing of things and buffing up on my Chi Squared assumptions and interpretations. Also this is   
+
+https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-03-04/readme.md
+
+## Reading in the data
+```{r}
+#| message: false
+#| warning: false
+vet_df <- readr::read_csv(
+  'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-03-04/longbeach.csv') %>% 
+  mutate(intake_condition = str_replace(intake_condition, '  ', ' '))
+print(head(vet_df))
+```
+
+## Cleaning Data
+Clean up the two variables (`intake_condition`, `outcome_type`) for a Chi Squared test. Making some assumptions here, but want to reduce the number of categories.   
+```{r}
+# add age
+vet_df <- vet_df %>% 
+  filter(!outcome_type %in% c('duplicate', 'missing'), 
+         !is.na(outcome_type)) %>% 
+  mutate(intake_condition = case_when(str_detect(intake_condition, 'behavior moderate') ~ 'ill moderate',
+                                      str_detect(intake_condition, 'behavior mild') ~ 'ill mild',
+                                      str_detect(intake_condition, 'behavior severe') ~ 'ill severe',
+                                      str_detect(intake_condition, 'intakeexam') ~ 'normal',
+                                      TRUE ~ intake_condition
+                                      ),
+         intake_condition = str_replace(intake_condition, 'moderatete', 'moderate'),
+         outcome_type_clean = case_when(str_detect(outcome_type,'neuter') ~ 'neuter', 
+                                   str_detect(outcome_type,'return') ~ 'return', 
+                                   str_detect(outcome_type, 'foster') ~ 'adoption',
+                                   # lumping with adoption
+                                   str_detect(outcome_type, 'homefirst') ~ 'adoption', 
+                                   # not sure what this means, but lumping with adoption. could be wrong
+                                   str_detect(outcome_type, 'disposal') ~ 'died', 
+                                   str_detect(outcome_type, 'community cat') ~ 'return',
+                                   # not sure here, but CATegory violates chisq assumption of no impossible combinations
+                                   TRUE ~ outcome_type),
+      age = difftime(intake_date, dob, units = 'days')/365,
+      stay_length = difftime(outcome_date, intake_date, units = 'days')) 
+```
+
+## Inspecting some variables:
+
+
+I want to do chi squared tests and here we look at some of the categorical variables. 
+```{r}
+vet_df %>%
+  ggplot(aes(x = reorder(animal_type, -table(animal_type)[animal_type]))) +  # Sort in descending order
+  geom_bar(fill = "darkseagreen") +  
+  labs(title = "Counts of Animal Types",
+       x = "Animal Type",
+       y = "Count") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+
+```{r}
+# Bar chart for intake_condition
+vet_df %>%
+  ggplot(aes(x = reorder(intake_condition, -table(intake_condition)[intake_condition]))) +  # Sort in descending order
+  geom_bar(fill = "darkseagreen") +  
+  labs(title = "Counts of Intake Conditions",
+       x = "Intake Condition",
+       y = "Count") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  
+```
+
+```{r}
+# Bar chart for outcome_type
+vet_df %>%
+  ggplot(aes(x = reorder(outcome_type_clean, -table(outcome_type_clean)[outcome_type_clean]))) +  # Sort in descending order
+  geom_bar(fill = "darkseagreen") +  
+  labs(title = "Counts of Outcome Types",
+       x = "Outcome Type",
+       y = "Count") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  
+```
+
+
+## Chi squared: is there a relationship btw `intake_condition` & `outcome_type`?
+
+
+```{r}
+# Create a contingency table
+contingency_table <- table(vet_df$intake_condition, vet_df$outcome_type_clean)
+
+# Perform Chi-Square Test
+chi_square_result <- chisq.test(contingency_table)
+print(chi_square_result)
+```
+
+Calculate row proportions to analyze specific associations. Look for high proportions in specific cells.  
+```{r}
+# Calculate row proportions to analyze specific associations. Look for high proportions in specific cells.
+row_proportions <- prop.table(contingency_table, margin = 1)
+print(row_proportions)
+
+```
+
+
+Visualize with a heat map. You can see there are some common relationships between `intake_condition` & `outcome_type`:
+- "normal" intake has a high proportion of "adoptions"
+- "ill severe" and "injured severe" more associated with "euthanasia" :(  
+```{r}
+contingency_df <- as.data.frame(contingency_table)
+ggplot(contingency_df, aes(x = Var2, y = Var1, fill = Freq)) +
+  geom_tile() +
+  labs(title = "Heatmap of Intake Condition vs. Outcome Type",
+       x = "Outcome Type",
+       y = "Intake Condition") +
+  scale_fill_gradient(low = "white", high = "steelblue") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+Post-hoc analysis: Checking associations between each specific pair of categories using the Bonferroni correction method. Positive (negative) residual means relationship is more frequent (less frequent) than expected. Values with absolute value > 2 indicate observation is significantly different from expected.  
+```{r}
+# Perform post-hoc tests (optional)
+posthoc_results <- chisq.posthoc.test(contingency_table, method = "bonferroni")
+print(posthoc_results)
+```
+
+Here we can see that severe illness is LESS associated with adoption, and MORE associated with euthanasia and death. SAD, but mild illness is more associated with adoption at least.  
+```{r}
+posthoc_results %>% 
+  filter(str_detect(Dimension, 'ill')) %>% 
+  print()
+```
+
+
+## Chi Squared: Checking the relationship btw `animal_type` and `outcome_type`
+```{r}
+# Create a contingency table
+contingency_table2 <- table(vet_df$animal_type, vet_df$outcome_type_clean)
+
+# Perform Chi-Square Test
+chi_square_result2 <- chisq.test(contingency_table2)
+print(chi_square_result2)
+```
+This is indicating a strong overall discrepancy between the observed and expected frequencies in the contingency table. P-value is very small (statistically significant). BUT we do not meet assumptions of the model since dog, cat, or bird are most of the observations. There is only 1 amphibian, e.g., so we can't possibly have 5 observations across ~10 outcomes. 
+
+*The expected frequency in each cell of the contingency table should be at least 5 for the Chi-Square approximation to be valid.*
+
+```{r}
+contingency_df2 <- as.data.frame(contingency_table2)
+ggplot(contingency_df2, aes(x = Var2, y = Var1, fill = Freq)) +
+  geom_tile() +
+  labs(title = "Heatmap of Intake Condition vs. Outcome Type",
+       x = "Outcome Type",
+       y = "Intake Condition") +
+  scale_fill_gradient(low = "white", high = "steelblue") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+Checking frequencies in contingency table. We know this will violate since there is only 1 amphibian record total, and few observations of the other animals.
+```{r}
+# Check expected frequencies
+expected2 <- chisq.test(contingency_table2)$expected
+expected2
+# Check if any expected frequencies are less than 5
+#any(expected2 < 5)
+```
+
+## Chi Squared: Checking the relationship btw `animal_type` (ONLY DOG, CAT, BIRD) and `outcome_type`
+
+I don't think think this really fits the Chi squared test requirements, since the animal type and outcome are not really independent. Birds are probably pigeons and wild birds that get injured/fly into buildings are not ever going to be adopted.  
+```{r}
+vet_df_dc <- vet_df %>% 
+  filter(animal_type %in% c('dog', 'cat', 'bird'))
+# Create a contingency table
+contingency_table3 <- table(vet_df_dc$animal_type, vet_df_dc$outcome_type_clean)
+
+# Perform Chi-Square Test
+chi_square_result3 <- chisq.test(contingency_table3)
+print(chi_square_result3)
+```
+
+```{r}
+contingency_df3 <- as.data.frame(contingency_table3)
+ggplot(contingency_df3, aes(x = Var2, y = Var1, fill = Freq)) +
+  geom_tile() +
+  labs(title = "Heatmap of Intake Condition vs. Outcome Type",
+       x = "Outcome Type",
+       y = "Intake Condition") +
+  scale_fill_gradient(low = "white", high = "steelblue") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```

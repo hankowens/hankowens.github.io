@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Henry Owens">
+<meta name="dcterms.date" content="2025-03-04">
+
+<title>Tidy Tuesday 2025-03-04 – Henry Owens</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Henry Owens</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../projects/tidy-tuesday-20250304.html" aria-current="page"> 
+<span class="menu-text">Tidy Tuesday 2025-03-04</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#long-beach-animal-shelter-data" id="toc-long-beach-animal-shelter-data" class="nav-link active" data-scroll-target="#long-beach-animal-shelter-data">Long Beach Animal Shelter data</a></li>
+  <li><a href="#reading-in-the-data" id="toc-reading-in-the-data" class="nav-link" data-scroll-target="#reading-in-the-data">Reading in the data</a></li>
+  <li><a href="#cleaning-data" id="toc-cleaning-data" class="nav-link" data-scroll-target="#cleaning-data">Cleaning Data</a></li>
+  <li><a href="#inspecting-some-variables" id="toc-inspecting-some-variables" class="nav-link" data-scroll-target="#inspecting-some-variables">Inspecting some variables:</a></li>
+  <li><a href="#chi-squared-is-there-a-relationship-btw-intake_condition-outcome_type" id="toc-chi-squared-is-there-a-relationship-btw-intake_condition-outcome_type" class="nav-link" data-scroll-target="#chi-squared-is-there-a-relationship-btw-intake_condition-outcome_type">Chi squared: is there a relationship btw <code>intake_condition</code> &amp; <code>outcome_type</code>?</a></li>
+  <li><a href="#chi-squared-checking-the-relationship-btw-animal_type-and-outcome_type" id="toc-chi-squared-checking-the-relationship-btw-animal_type-and-outcome_type" class="nav-link" data-scroll-target="#chi-squared-checking-the-relationship-btw-animal_type-and-outcome_type">Chi Squared: Checking the relationship btw <code>animal_type</code> and <code>outcome_type</code></a></li>
+  <li><a href="#chi-squared-checking-the-relationship-btw-animal_type-only-dog-cat-bird-and-outcome_type" id="toc-chi-squared-checking-the-relationship-btw-animal_type-only-dog-cat-bird-and-outcome_type" class="nav-link" data-scroll-target="#chi-squared-checking-the-relationship-btw-animal_type-only-dog-cat-bird-and-outcome_type">Chi Squared: Checking the relationship btw <code>animal_type</code> (ONLY DOG, CAT, BIRD) and <code>outcome_type</code></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Tidy Tuesday 2025-03-04</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Henry Owens </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 4, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="long-beach-animal-shelter-data" class="level2">
+<h2 class="anchored" data-anchor-id="long-beach-animal-shelter-data">Long Beach Animal Shelter data</h2>
+<p>The dataset comes from the City of Long Beach Animal Care Services via the {animalshelter} R package.</p>
+<p>I did some basic dataviz and ran Chi Squared tests on a few variables. Getting back into the swing of things and buffing up on my Chi Squared assumptions and interpretations. Also this is</p>
+<p>https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-03-04/readme.md</p>
+</section>
+<section id="reading-in-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="reading-in-the-data">Reading in the data</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 22
+  animal_id animal_name animal_type primary_color secondary_color sex     
+  &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;           &lt;chr&gt;   
+1 A693708   *charlien   dog         white         &lt;NA&gt;            Female  
+2 A708149   &lt;NA&gt;        reptile     brown         green           Unknown 
+3 A638068   &lt;NA&gt;        bird        green         red             Unknown 
+4 A639310   &lt;NA&gt;        bird        white         gray            Unknown 
+5 A618968   *morgan     cat         black         white           Female  
+6 A730385   *brandon    rabbit      black         white           Neutered
+# ℹ 16 more variables: dob &lt;date&gt;, intake_date &lt;date&gt;, intake_condition &lt;chr&gt;,
+#   intake_type &lt;chr&gt;, intake_subtype &lt;chr&gt;, reason_for_intake &lt;chr&gt;,
+#   outcome_date &lt;date&gt;, crossing &lt;chr&gt;, jurisdiction &lt;chr&gt;,
+#   outcome_type &lt;chr&gt;, outcome_subtype &lt;chr&gt;, latitude &lt;dbl&gt;, longitude &lt;dbl&gt;,
+#   outcome_is_dead &lt;lgl&gt;, was_outcome_alive &lt;lgl&gt;, geopoint &lt;chr&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="cleaning-data" class="level2">
+<h2 class="anchored" data-anchor-id="cleaning-data">Cleaning Data</h2>
+<p>Clean up the two variables (<code>intake_condition</code>, <code>outcome_type</code>) for a Chi Squared test. Making some assumptions here, but want to reduce the number of categories.</p>
+</section>
+<section id="inspecting-some-variables" class="level2">
+<h2 class="anchored" data-anchor-id="inspecting-some-variables">Inspecting some variables:</h2>
+<p>I want to do chi squared tests and here we look at some of the categorical variables.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tidy-tuesday-20250304_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tidy-tuesday-20250304_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tidy-tuesday-20250304_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="chi-squared-is-there-a-relationship-btw-intake_condition-outcome_type" class="level2">
+<h2 class="anchored" data-anchor-id="chi-squared-is-there-a-relationship-btw-intake_condition-outcome_type">Chi squared: is there a relationship btw <code>intake_condition</code> &amp; <code>outcome_type</code>?</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  contingency_table
+X-squared = 19036, df = 84, p-value &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>Calculate row proportions to analyze specific associations. Look for high proportions in specific cells.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>                  
+                       adoption         died   euthanasia       neuter
+  aged             0.1612903226 0.0064516129 0.0709677419 0.0000000000
+  feral            0.0638297872 0.0035460993 0.0921985816 0.5992907801
+  fractious        0.1435185185 0.0154320988 0.0787037037 0.4675925926
+  i/i report       0.4425531915 0.0212765957 0.0978723404 0.0000000000
+  ill mild         0.3060897436 0.0328525641 0.1810897436 0.0080128205
+  ill moderate     0.1919096896 0.0470366886 0.3461900282 0.0037629351
+  ill severe       0.0566448802 0.0951343500 0.6702977487 0.0021786492
+  injured mild     0.1897674419 0.0279069767 0.1609302326 0.0065116279
+  injured moderate 0.1171941831 0.0376390077 0.3079555175 0.0025662960
+  injured severe   0.0339063992 0.0725883477 0.6179560649 0.0038204394
+  normal           0.2991887906 0.0076696165 0.0407079646 0.0342920354
+  under age/weight 0.1790633609 0.0402509948 0.2209978574 0.0006121824
+  welfare seizures 0.1571428571 0.0285714286 0.0000000000 0.0000000000
+                  
+                         rescue       return     transfer    transport
+  aged             0.2129032258 0.5225806452 0.0258064516 0.0000000000
+  feral            0.1382978723 0.0602836879 0.0319148936 0.0106382979
+  fractious        0.1327160494 0.0864197531 0.0694444444 0.0061728395
+  i/i report       0.2468085106 0.1361702128 0.0553191489 0.0000000000
+  ill mild         0.2475961538 0.1346153846 0.0857371795 0.0040064103
+  ill moderate     0.2050799624 0.1081843838 0.0846660395 0.0131702728
+  ill severe       0.0726216412 0.0312273057 0.0711692084 0.0007262164
+  injured mild     0.1804651163 0.1925581395 0.2223255814 0.0195348837
+  injured moderate 0.1822070145 0.1035072712 0.2369546621 0.0119760479
+  injured severe   0.0787965616 0.0453677173 0.1423113658 0.0052531041
+  normal           0.1769911504 0.2143067847 0.2198377581 0.0070058997
+  under age/weight 0.4377104377 0.0085705540 0.1069788797 0.0058157331
+  welfare seizures 0.0714285714 0.6142857143 0.1285714286 0.0000000000</code></pre>
+</div>
+</div>
+<p>Visualize with a heat map. You can see there are some common relationships between <code>intake_condition</code> &amp; <code>outcome_type</code>: - “normal” intake has a high proportion of “adoptions” - “ill severe” and “injured severe” more associated with “euthanasia” :(</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tidy-tuesday-20250304_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Post-hoc analysis: Checking associations between each specific pair of categories using the Bonferroni correction method. Positive (negative) residual means relationship is more frequent (less frequent) than expected. Values with absolute value &gt; 2 indicate observation is significantly different from expected.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>          Dimension     Value   adoption         died  euthanasia     neuter
+1              aged Residuals  -1.826033  -1.64282704  -3.6588996  -2.308623
+2              aged  p values   1.000000   1.00000000   0.0263430   1.000000
+3             feral Residuals  -6.424817  -2.51655271  -4.0228177  53.426371
+4             feral  p values   0.000000   1.00000000   0.0059810   0.000000
+5         fractious Residuals  -4.865920  -1.99271770  -7.0317230  62.543286
+6         fractious  p values   0.000118   1.00000000   0.0000000   0.000000
+7        i/i report Residuals   8.163300  -0.64873009  -3.4443380  -2.846516
+8        i/i report  p values   0.000000   1.00000000   0.0595360   0.459685
+9          ill mild Residuals   7.294820   1.00004757  -0.3374166  -5.058792
+10         ill mild  p values   0.000000   1.00000000   1.0000000   0.000044
+11     ill moderate Residuals  -2.411488   3.76219888  13.8173641  -5.442779
+12     ill moderate  p values   1.000000   0.01751600   0.0000000   0.000005
+13       ill severe Residuals -15.127823  15.33626460  47.5551225  -6.565883
+14       ill severe  p values   0.000000   0.00000000   0.0000000   0.000000
+15     injured mild Residuals  -2.597720  -0.07147661  -2.0473439  -4.961174
+16     injured mild  p values   0.975988   1.00000000   1.0000000   0.000073
+17 injured moderate Residuals  -8.804967   1.97421153  11.0795702  -5.951825
+18 injured moderate  p values   0.000000   1.00000000   0.0000000   0.000000
+19   injured severe Residuals -21.494644  12.69882687  53.0018215  -7.766149
+20   injured severe  p values   0.000000   0.00000000   0.0000000   0.000000
+21           normal Residuals  29.378246 -19.68155086 -58.7782045   1.079252
+22           normal  p values   0.000000   0.00000000   0.0000000   1.000000
+23 under age/weight Residuals  -9.483851   6.62767024   8.5645844 -16.629015
+24 under age/weight  p values   0.000000   0.00000000   0.0000000   0.000000
+25 welfare seizures Residuals  -1.308943   0.01566045  -3.9871633  -1.549203
+26 welfare seizures  p values   1.000000   1.00000000   0.0069540   1.000000
+        rescue      return    transfer   transport
+1   -0.4015186  14.2787134  -4.6809372 -1.04659720
+2    1.0000000   0.0000000   0.0002970  1.00000000
+3   -3.5509639  -3.6329264  -6.0498225  0.74127534
+4    0.0399180   0.0291430   0.0000000  1.00000000
+5   -5.7601652  -3.5639620  -6.6261596 -0.24975207
+6    0.0000010   0.0379910   0.0000000  1.00000000
+7    0.7519276   0.1201928  -4.5477955 -1.29044721
+8    1.0000000   1.0000000   0.0005640  1.00000000
+9    1.8315284   0.1168854  -7.7081877 -1.28956611
+10   1.0000000   1.0000000   0.0000000  1.00000000
+11  -1.6889388  -2.4729676  -7.1866229  2.46869200
+12   1.0000000   1.0000000   0.0000000  1.00000000
+13 -13.9625569 -11.4292754  -9.6069507 -2.85499979
+14   0.0000000   0.0000000   0.0000000  0.44758300
+15  -3.6634633   5.7982147   5.1590454  5.03643673
+16   0.0258780   0.0000010   0.0000260  0.00004900
+17  -3.6813844  -3.0779359   6.7638513  2.09326161
+18   0.0241250   0.2167770   0.0000000  1.00000000
+19 -16.7413045 -12.3035643  -2.9013632 -0.98510226
+20   0.0000000   0.0000000   0.3864050  1.00000000
+21 -18.6874409  37.6237499  23.4031442  0.04796987
+22   0.0000000   0.0000000   0.0000000  1.00000000
+23  46.2657948 -33.6516522 -14.3187524 -1.28179013
+24   0.0000000   0.0000000   0.0000000  1.00000000
+25  -3.1012968  11.8402074  -0.8219898 -0.70231975
+26   0.2003820   0.0000000   1.0000000  1.00000000</code></pre>
+</div>
+</div>
+<p>Here we can see that severe illness is LESS associated with adoption, and MORE associated with euthanasia and death. SAD, but mild illness is more associated with adoption at least.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>     Dimension     Value   adoption      died euthanasia    neuter     rescue
+1     ill mild Residuals   7.294820  1.000048 -0.3374166 -5.058792   1.831528
+2     ill mild  p values   0.000000  1.000000  1.0000000  0.000044   1.000000
+3 ill moderate Residuals  -2.411488  3.762199 13.8173641 -5.442779  -1.688939
+4 ill moderate  p values   1.000000  0.017516  0.0000000  0.000005   1.000000
+5   ill severe Residuals -15.127823 15.336265 47.5551225 -6.565883 -13.962557
+6   ill severe  p values   0.000000  0.000000  0.0000000  0.000000   0.000000
+       return  transfer transport
+1   0.1168854 -7.708188 -1.289566
+2   1.0000000  0.000000  1.000000
+3  -2.4729676 -7.186623  2.468692
+4   1.0000000  0.000000  1.000000
+5 -11.4292754 -9.606951 -2.855000
+6   0.0000000  0.000000  0.447583</code></pre>
+</div>
+</div>
+</section>
+<section id="chi-squared-checking-the-relationship-btw-animal_type-and-outcome_type" class="level2">
+<h2 class="anchored" data-anchor-id="chi-squared-checking-the-relationship-btw-animal_type-and-outcome_type">Chi Squared: Checking the relationship btw <code>animal_type</code> and <code>outcome_type</code></h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  contingency_table2
+X-squared = 10563, df = 63, p-value &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>This is indicating a strong overall discrepancy between the observed and expected frequencies in the contingency table. P-value is very small (statistically significant). BUT we do not meet assumptions of the model since dog, cat, or bird are most of the observations. There is only 1 amphibian, e.g., so we can’t possibly have 5 observations across ~10 outcomes.</p>
+<p><em>The expected frequency in each cell of the contingency table should be at least 5 for the Chi-Square approximation to be valid.</em></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tidy-tuesday-20250304_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Checking frequencies in contingency table. We know this will violate since there is only 1 amphibian record total, and few observations of the other animals.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>            
+                 adoption         died   euthanasia      neuter       rescue
+  amphibian     0.6662826   0.08478482    0.5541511   0.0992206    0.6790918
+  bird        459.5129109  58.47326330  382.1795662  68.4291427  468.3470010
+  cat        3115.9817011 396.51033548 2591.5801423 464.0216876 3175.8861403
+  dog        2136.5462555 271.87665198 1776.9779736 318.1674009 2177.6211454
+  guinea pig   38.2002033   4.86099627   31.7713318   5.6886479   38.9345984
+  livestock     2.2209421   0.28261606    1.8471705   0.3307353    2.2636394
+  other       294.9411047  37.53141308  245.3042359  43.9216537  300.6113182
+  rabbit      116.3773636  14.80908167   96.7917316  17.3305320  118.6147069
+  reptile      76.1783124   9.69373094   63.3579465  11.3442223   77.6428329
+  wild        313.3749238  39.87712640  260.6357506  46.6667570  319.3995256
+            
+                   return     transfer   transport
+  amphibian     0.4005422    0.4949848  0.02094205
+  bird        276.2405964  341.3744832 14.44303626
+  cat        1873.2023043 2314.8786852 97.93900373
+  dog        1284.4052863 1587.2511013 67.15418502
+  guinea pig   22.9644188   28.3791257  1.20067774
+  livestock     1.3351406    1.6499492  0.06980685
+  other       177.3066757  219.1132497  9.27034903
+  rabbit       69.9613690   86.4573365  3.65787869
+  reptile      45.7953236   56.5932565  2.39437479
+  wild        188.3883429  232.8078279  9.84974585</code></pre>
+</div>
+</div>
+</section>
+<section id="chi-squared-checking-the-relationship-btw-animal_type-only-dog-cat-bird-and-outcome_type" class="level2">
+<h2 class="anchored" data-anchor-id="chi-squared-checking-the-relationship-btw-animal_type-only-dog-cat-bird-and-outcome_type">Chi Squared: Checking the relationship btw <code>animal_type</code> (ONLY DOG, CAT, BIRD) and <code>outcome_type</code></h2>
+<p>I don’t think think this really fits the Chi squared test requirements, since the animal type and outcome are not really independent. Birds are probably pigeons and wild birds that get injured/fly into buildings are not ever going to be adopted.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's Chi-squared test
+
+data:  contingency_table3
+X-squared = 6217.8, df = 14, p-value &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="tidy-tuesday-20250304_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/hankowens\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

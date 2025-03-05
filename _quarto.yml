@@ -9,6 +9,8 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: projects/tidy-tuesday-20250304.html
+        text: Tidy Tuesday 2025-03-04
 
 format:
   html:
