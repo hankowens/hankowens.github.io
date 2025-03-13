@@ -1,0 +1,67 @@
+---
+title: "tidy-tuesday-20250311"
+author: "Henry Owens"
+date: "2025-03-11"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(ggplot2)
+```
+
+```{r message=FALSE, warning=FALSE}
+# Using R
+# Option 1: tidytuesdayR R package 
+#install.packages("tidytuesdayR")
+
+tuesdata <- tidytuesdayR::tt_load('2025-03-11')
+## OR
+#tuesdata <- tidytuesdayR::tt_load(2025, week = 10)
+
+pixar_films <- tuesdata$pixar_films
+public_response <- tuesdata$public_response
+```
+## Data Inspection
+I can see the tables have different row counts, so let's investigate that.
+
+These are in the films table, but not response table:
+The NA film is Elemental, according to the release date. I assign the title because i went through the trouble of checking, but there isnt response data.  
+
+```{r}
+setdiff(pixar_films$film, public_response$film)
+```
+
+## Plotting Select Ratings
+
+Here I make a plot comparing the Metacritic and Rotten Tomatoes scores.   
+```{r}
+# assign missing title
+pixar_films <- pixar_films %>% 
+  mutate(film = if_else(release_date == '2023-06-16', 'Elemental', film))
+         
+
+pixar_df <- merge(pixar_films, public_response, by = "film", all = TRUE) %>% 
+  mutate(film_year = paste0(film, " (", year(release_date), ")"),
+         film_year = fct_reorder(film_year, release_date))
+
+pixar_df %>% 
+  filter(!is.na(rotten_tomatoes), !is.na(metacritic)) %>% 
+  ggplot() +
+  geom_point(aes(x = film_year, y = rotten_tomatoes), color = "darkred") +
+  geom_point(aes(x = film_year, y = metacritic), color = "blue") +
+  # cant ge the emoji labels to work...
+  # geom_text(aes(x = film_year, y = rotten_tomatoes, label = "🍅")) +
+  # geom_text(aes(x = film_year, y = metacritic, label = "🎥")) +
+  labs(x = "Film (year)", 
+       y = "Rotten Tomatoes score (red), Metacritic score (blue)",
+       title ="Comparing Different Critical Responses to Pixar Films") +
+  coord_flip() +
+  theme_minimal()
+```
+
+
+
+
+

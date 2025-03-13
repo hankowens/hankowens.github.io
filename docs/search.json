@@ -1,5 +1,61 @@
 [
   {
+    "objectID": "projects/tidy-tuesday-20250311.html",
+    "href": "projects/tidy-tuesday-20250311.html",
+    "title": "tidy-tuesday-20250311",
+    "section": "",
+    "text": "I can see the tables have different row counts, so let’s investigate that.\nThese are in the films table, but not response table: The NA film is Elemental, according to the release date. I assign the title because i went through the trouble of checking, but there isnt response data.\n\n\n[1] \"Turning Red\" \"Lightyear\"   NA"
+  },
+  {
+    "objectID": "projects/tidy-tuesday-20250311.html#data-inspection",
+    "href": "projects/tidy-tuesday-20250311.html#data-inspection",
+    "title": "tidy-tuesday-20250311",
+    "section": "",
+    "text": "I can see the tables have different row counts, so let’s investigate that.\nThese are in the films table, but not response table: The NA film is Elemental, according to the release date. I assign the title because i went through the trouble of checking, but there isnt response data.\n\n\n[1] \"Turning Red\" \"Lightyear\"   NA"
+  },
+  {
+    "objectID": "projects/tidy-tuesday-20250311.html#plotting-select-ratings",
+    "href": "projects/tidy-tuesday-20250311.html#plotting-select-ratings",
+    "title": "tidy-tuesday-20250311",
+    "section": "Plotting Select Ratings",
+    "text": "Plotting Select Ratings\nHere I make a plot comparing the Metacritic and Rotten Tomatoes scores."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Henry Owens",
+    "section": "",
+    "text": "Hi! I’m building this site to show some of my data analysis projects. Stay tuned for more!"
+  },
+  {
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Henry Owens",
+    "section": "",
+    "text": "Hi! I’m building this site to show some of my data analysis projects. Stay tuned for more!"
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Henry Owens",
+    "section": "Projects",
+    "text": "Projects\n\nTidy Tuesday 2025-03-04"
+  },
+  {
+    "objectID": "index.html#contact",
+    "href": "index.html#contact",
+    "title": "Henry Owens",
+    "section": "Contact",
+    "text": "Contact\nReach me at henry.b.owens@gmail.com.\nConnect:\nLinkedIn | GitHub\n\n© 2025 Henry Owens"
+  },
+  {
     "objectID": "projects/tidy-tuesday-20250304.html",
     "href": "projects/tidy-tuesday-20250304.html",
     "title": "Tidy Tuesday 2025-03-04",
@@ -54,40 +110,5 @@
     "title": "Tidy Tuesday 2025-03-04",
     "section": "Chi Squared: Checking the relationship btw animal_type (ONLY DOG, CAT, BIRD) and outcome_type",
     "text": "Chi Squared: Checking the relationship btw animal_type (ONLY DOG, CAT, BIRD) and outcome_type\nI don’t think think this really fits the Chi squared test requirements, since the animal type and outcome are not really independent. Birds are probably pigeons and wild birds that get injured/fly into buildings are not ever going to be adopted.\n\n\n\n    Pearson's Chi-squared test\n\ndata:  contingency_table3\nX-squared = 6217.8, df = 14, p-value &lt; 2.2e-16"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Henry Owens",
-    "section": "",
-    "text": "Hi! I’m building this site to show some of my data analysis projects. Stay tuned for more!"
-  },
-  {
-    "objectID": "index.html#about",
-    "href": "index.html#about",
-    "title": "Henry Owens",
-    "section": "",
-    "text": "Hi! I’m building this site to show some of my data analysis projects. Stay tuned for more!"
-  },
-  {
-    "objectID": "index.html#projects",
-    "href": "index.html#projects",
-    "title": "Henry Owens",
-    "section": "Projects",
-    "text": "Projects\n\nTidy Tuesday 2025-03-04"
-  },
-  {
-    "objectID": "index.html#contact",
-    "href": "index.html#contact",
-    "title": "Henry Owens",
-    "section": "Contact",
-    "text": "Contact\nReach me at henry.b.owens@gmail.com.\nConnect:\nLinkedIn | GitHub\n\n© 2025 Henry Owens"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
   }
 ]
