@@ -175,21 +175,205 @@ ul.task-list li input[type="checkbox"] {
 <section id="reading-in-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="reading-in-the-data">Reading in the data</h2>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 22
-  animal_id animal_name animal_type primary_color secondary_color sex     
-  &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;       &lt;chr&gt;         &lt;chr&gt;           &lt;chr&gt;   
-1 A693708   *charlien   dog         white         &lt;NA&gt;            Female  
-2 A708149   &lt;NA&gt;        reptile     brown         green           Unknown 
-3 A638068   &lt;NA&gt;        bird        green         red             Unknown 
-4 A639310   &lt;NA&gt;        bird        white         gray            Unknown 
-5 A618968   *morgan     cat         black         white           Female  
-6 A730385   *brandon    rabbit      black         white           Neutered
-# ℹ 16 more variables: dob &lt;date&gt;, intake_date &lt;date&gt;, intake_condition &lt;chr&gt;,
-#   intake_type &lt;chr&gt;, intake_subtype &lt;chr&gt;, reason_for_intake &lt;chr&gt;,
-#   outcome_date &lt;date&gt;, crossing &lt;chr&gt;, jurisdiction &lt;chr&gt;,
-#   outcome_type &lt;chr&gt;, outcome_subtype &lt;chr&gt;, latitude &lt;dbl&gt;, longitude &lt;dbl&gt;,
-#   outcome_is_dead &lt;lgl&gt;, was_outcome_alive &lt;lgl&gt;, geopoint &lt;chr&gt;</code></pre>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 5%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 3%">
+<col style="width: 14%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 4%">
+<col style="width: 5%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">animal_id</th>
+<th style="text-align: left;">animal_name</th>
+<th style="text-align: left;">animal_type</th>
+<th style="text-align: left;">primary_color</th>
+<th style="text-align: left;">secondary_color</th>
+<th style="text-align: left;">sex</th>
+<th style="text-align: left;">dob</th>
+<th style="text-align: left;">intake_date</th>
+<th style="text-align: left;">intake_condition</th>
+<th style="text-align: left;">intake_type</th>
+<th style="text-align: left;">intake_subtype</th>
+<th style="text-align: left;">reason_for_intake</th>
+<th style="text-align: left;">outcome_date</th>
+<th style="text-align: left;">crossing</th>
+<th style="text-align: left;">jurisdiction</th>
+<th style="text-align: left;">outcome_type</th>
+<th style="text-align: left;">outcome_subtype</th>
+<th style="text-align: right;">latitude</th>
+<th style="text-align: right;">longitude</th>
+<th style="text-align: left;">outcome_is_dead</th>
+<th style="text-align: left;">was_outcome_alive</th>
+<th style="text-align: left;">geopoint</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A693708</td>
+<td style="text-align: left;">*charlien</td>
+<td style="text-align: left;">dog</td>
+<td style="text-align: left;">white</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">2013-02-21</td>
+<td style="text-align: left;">2023-02-20</td>
+<td style="text-align: left;">ill mild</td>
+<td style="text-align: left;">stray</td>
+<td style="text-align: left;">otc</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">2023-02-26</td>
+<td style="text-align: left;">[2600 BLK LONG BEACH BLVD, LONG BEACH CA, 90806</td>
+<td style="text-align: left;">Long Beach</td>
+<td style="text-align: left;">euthanasia</td>
+<td style="text-align: left;">ill severe</td>
+<td style="text-align: right;">33.80479</td>
+<td style="text-align: right;">-118.1889</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">33.8047935, -118.1889261</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A708149</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">reptile</td>
+<td style="text-align: left;">brown</td>
+<td style="text-align: left;">green</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">2023-10-03</td>
+<td style="text-align: left;">normal</td>
+<td style="text-align: left;">stray</td>
+<td style="text-align: left;">field</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">2023-10-03</td>
+<td style="text-align: left;">`600 BLK E HARCOURT, LB 90805</td>
+<td style="text-align: left;">Long Beach</td>
+<td style="text-align: left;">rescue</td>
+<td style="text-align: left;">other resc</td>
+<td style="text-align: right;">33.86800</td>
+<td style="text-align: right;">-118.2009</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">33.8679994, -118.2009307</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A638068</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">bird</td>
+<td style="text-align: left;">green</td>
+<td style="text-align: left;">red</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">2020-01-01</td>
+<td style="text-align: left;">injured severe</td>
+<td style="text-align: left;">wildlife</td>
+<td style="text-align: left;">field</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">2020-01-01</td>
+<td style="text-align: left;">0 BLK GRAND AVE, LONG BEACH, CA 90803</td>
+<td style="text-align: left;">Long Beach</td>
+<td style="text-align: left;">euthanasia</td>
+<td style="text-align: left;">inj severe</td>
+<td style="text-align: right;">33.76048</td>
+<td style="text-align: right;">-118.1481</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">33.7604783, -118.1480912</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A639310</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">bird</td>
+<td style="text-align: left;">white</td>
+<td style="text-align: left;">gray</td>
+<td style="text-align: left;">Unknown</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">2020-02-02</td>
+<td style="text-align: left;">ill severe</td>
+<td style="text-align: left;">wildlife</td>
+<td style="text-align: left;">field</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">2020-02-02</td>
+<td style="text-align: left;">0 BLK TEMPLE AVE, LONG BEACH, CA 90803</td>
+<td style="text-align: left;">Long Beach</td>
+<td style="text-align: left;">transfer</td>
+<td style="text-align: left;">lbah</td>
+<td style="text-align: right;">33.76246</td>
+<td style="text-align: right;">-118.1597</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">33.7624598, -118.1596777</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A618968</td>
+<td style="text-align: left;">*morgan</td>
+<td style="text-align: left;">cat</td>
+<td style="text-align: left;">black</td>
+<td style="text-align: left;">white</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: left;">2014-12-18</td>
+<td style="text-align: left;">2018-12-18</td>
+<td style="text-align: left;">injured severe</td>
+<td style="text-align: left;">stray</td>
+<td style="text-align: left;">field</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">2019-01-13</td>
+<td style="text-align: left;">0 BLK W ZANE ST, LONG BEACH, CA 90805</td>
+<td style="text-align: left;">Long Beach</td>
+<td style="text-align: left;">rescue</td>
+<td style="text-align: left;">littlelion</td>
+<td style="text-align: right;">33.84950</td>
+<td style="text-align: right;">-118.1949</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">33.8495009, -118.1949053</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A730385</td>
+<td style="text-align: left;">*brandon</td>
+<td style="text-align: left;">rabbit</td>
+<td style="text-align: left;">black</td>
+<td style="text-align: left;">white</td>
+<td style="text-align: left;">Neutered</td>
+<td style="text-align: left;">2023-04-19</td>
+<td style="text-align: left;">2024-10-18</td>
+<td style="text-align: left;">normal</td>
+<td style="text-align: left;">stray</td>
+<td style="text-align: left;">otc</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">2024-11-15</td>
+<td style="text-align: left;">00 AQUARIUM WAY LONG BEACH CA 90802</td>
+<td style="text-align: left;">Long Beach</td>
+<td style="text-align: left;">adoption</td>
+<td style="text-align: left;">web</td>
+<td style="text-align: right;">33.76399</td>
+<td style="text-align: right;">-118.1944</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">33.7639859, -118.1944096</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </section>

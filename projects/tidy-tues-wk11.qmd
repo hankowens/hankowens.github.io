@@ -1,0 +1,157 @@
+---
+title: "Tidy Tuesday 2025-03-18"
+author: "Henry Owens"
+date: "2025-03-17"
+format: html
+toc: true
+---
+
+# Palm Trees
+From the prompt: 
+*This week we're exploring Palm Trees!*
+
+*The dataset comes from the the PalmTraits 1.0 database via the palmtrees R package by Emil Hvitfeldt.*
+
+*Plant traits are critical to plant form and function —including growth, survival and reproduction— and therefore shape fundamental aspects of population and ecosystem dynamics as well as ecosystem services. Here, we present a global species-level compilation of key functional traits for palms (Arecaceae), a plant family with keystone importance in tropical and subtropical ecosystems.*
+
+*- How do the sizes of the different species of palms vary across sub families?*
+
+*- Which fruit colors occur most often?*
+
+```{r}
+#| message: false
+#| warning: false
+#| include: false
+library(tidyverse)
+library(ggplot2)
+tuesdata <- tidytuesdayR::tt_load('2025-03-18')
+palmtrees <- tuesdata$palmtrees
+```
+
+# Data viz
+
+This week, I did some pretty basic data visualizations for the prompt.
+
+## How do the sizes of the different species of palms vary across sub families?
+
+### Stem Height  
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+palmtrees %>% 
+  filter(max_stem_height_m > 0,
+         !is.na(max_stem_height_m)) %>% 
+  ggplot(aes(x = palm_subfamily, 
+             y = max_stem_height_m, 
+             color = palm_subfamily)) +
+  geom_boxplot() +
+  labs(title = "Stem Height by Subfamily",
+       x = "Palm Subfamily",
+       y = "Maximium Stem Height (m)",
+       color = NULL) +
+  guides(color = "none") +
+  coord_flip()
+```
+
+
+### Number of Leaves
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+palmtrees %>% 
+  filter(max_leaf_number > 0,
+         !is.na(max_leaf_number)) %>% 
+  ggplot(aes(x = palm_subfamily, 
+             y = max_leaf_number, 
+             color = palm_subfamily)) +
+  geom_boxplot() +
+  labs(title = "Leaf Count by Subfamily",
+       x = "Palm Subfamily",
+       y = "Maximum Leaf Number",
+       color = NULL) +
+  guides(color = "none") +
+  coord_flip()
+```
+
+
+### Length of Leaves/Blades
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+palmtrees %>% 
+  filter(max__blade__length_m > 0,
+         !is.na(max__blade__length_m)) %>% 
+  ggplot(aes(x = palm_subfamily, 
+             y = max__blade__length_m, 
+             color = palm_subfamily)) +
+  geom_boxplot() +
+  labs(title = "Blade Length by Subfamily",
+       x = "Palm Subfamily",
+       y = "Maximum Blade Length (m)",
+       color = NULL) +
+  guides(color = "none") +
+  coord_flip()
+```
+
+
+## Which fruit colors occur most often?  
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+### semi cool chart:
+palm_plot_df <- palmtrees %>%
+  filter(!is.na(main_fruit_colors)) %>%
+  select(spec_name, main_fruit_colors, palm_subfamily) %>%
+  separate(main_fruit_colors, into = c("dominant_color"), sep = ";", extra = "drop", remove = FALSE) %>%
+  mutate(dominant_color = trimws(dominant_color)) %>% 
+  group_by(palm_subfamily, dominant_color) %>%
+  summarise(n_species = n_distinct(spec_name)) %>%
+  mutate(subfam_portion = n_species/sum(n_species)) %>% 
+  ungroup() %>%
+  group_by(palm_subfamily) %>%
+  arrange(desc(subfam_portion), .by_group = TRUE) %>%
+  mutate(subblob_id = row_number()) %>%
+  ungroup()
+
+ggplot(palm_plot_df, aes(x = palm_subfamily, y = subblob_id, size = subfam_portion, color = dominant_color)) +
+  geom_point(alpha = 0.7) +  
+  scale_size_continuous(range = c(3, 20)) +  
+  scale_color_manual(values = c(
+    "black" = "black",
+    "blue" = "blue",
+    "brown" = "chocolate4",
+    "green" = "darkgreen",
+    "orange" = "orange",
+    "pink" = "pink",
+    "purple" = "purple",
+    "red" = "red",
+    "white" = "white",
+    "yellow" = "yellow",
+    "cream" = "beige",
+    "grey" = "darkgrey",
+    "ivory" = "ivory",
+    "straw-coloured" = "wheat"
+  )) +  # assign colors
+  labs(
+    title = "Dominant Fruit Color Frequency by Palm Subfamily",
+    x = "Subfamily",
+    y = NULL,
+    size = "Subfamily Portion",
+    color = NULL
+  ) +
+  guides(color = "none") +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),  
+    axis.text.y = element_blank(),  
+    axis.ticks.y = element_blank(), 
+    panel.grid.major.y = element_blank(),
+    legend.position = "bottom",
+    panel.background = element_rect(fill = "lightgray")
+  )
+```
+

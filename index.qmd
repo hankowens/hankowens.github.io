@@ -6,10 +6,27 @@ title: "Henry Owens"
 
 Hi! I'm building this site to show some of my data analysis projects. Stay tuned for more!
 
+Here are some pictures of my dog GameBoy, a sato.  
+
+::: {layout-ncol=2}
+
+![](images/gb1.jpg){width=50%}
+
+![](images/gb2.jpg){width=50%}
+
+![](images/gb3.jpg){width=50%}
+
+![](images/gb4.jpg){width=50%}
+
+![](images/gb5.jpg){width=50%}
+
+GameBoy!
+:::
+
 ## Projects {#projects}
 
-- [Tidy Tuesday 2025-03-04](projects/tidy-tuesday-20250304.html)
-- [Tidy Tuesday 2025-03-11](projects/tidy-tuesday-20250311.html)
+Check out my [projects](ttprojects.qmd)!
+
 
 ## Contact {#contact}
 

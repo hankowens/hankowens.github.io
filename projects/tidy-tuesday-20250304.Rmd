@@ -20,10 +20,10 @@ library(ggplot2)
 knitr::opts_chunk$set(message = FALSE, echo = FALSE, warning = FALSE)
 ```
 
-## Long Beach Animal Shelter data  
+# Long Beach Animal Shelter data  
 The dataset comes from the City of Long Beach Animal Care Services via the {animalshelter} R package.
 
-I did some basic dataviz and ran Chi Squared tests on a few variables. Getting back into the swing of things and buffing up on my Chi Squared assumptions and interpretations. Also this is   
+I did some basic dataviz and ran Chi Squared tests on a few variables. The instructions said not to do causal analysis. BUT I wanted to practice my Chi Squared assumptions/interpretations. (The data does not meet the assumptions.)
 
 https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-03-04/readme.md
 
@@ -34,7 +34,7 @@ https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-03-04/re
 vet_df <- readr::read_csv(
   'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2025/2025-03-04/longbeach.csv') %>% 
   mutate(intake_condition = str_replace(intake_condition, '  ', ' '))
-print(head(vet_df))
+knitr::kable(head(vet_df))
 ```
 
 ## Cleaning Data
