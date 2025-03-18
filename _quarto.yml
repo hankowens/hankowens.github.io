@@ -3,7 +3,7 @@ project:
   output-dir: docs
   render:
     - index.qmd
-    - about.qmd
+    - ttprojects.qmd
     - projects/tidy-tuesday-20250304.Rmd
     - projects/tidy-tuesday-20250311.Rmd
     - projects/tidy-tues-wk11.qmd
@@ -15,8 +15,6 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: about.qmd
-        text: About
       - href: ttprojects.qmd
         text: Projects
 

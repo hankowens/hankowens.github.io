@@ -98,11 +98,18 @@
     "text": "Contact\nReach me at henry.b.owens@gmail.com.\nConnect:\nLinkedIn | GitHub\n\n© 2025 Henry Owens"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "ttprojects.html",
+    "href": "ttprojects.html",
+    "title": "Tidy Tuesday Projects",
     "section": "",
-    "text": "Hello"
+    "text": "These are my weekly Tidy Tuesday projects. These are quick coding and data visualization challenges hosted by the Data Science Learning Community.\n\nTidy Tuesday Week 9\nTidy Tuesday Week 10\nTidy Tuesday Week 11"
+  },
+  {
+    "objectID": "ttprojects.html#projects",
+    "href": "ttprojects.html#projects",
+    "title": "Tidy Tuesday Projects",
+    "section": "",
+    "text": "These are my weekly Tidy Tuesday projects. These are quick coding and data visualization challenges hosted by the Data Science Learning Community.\n\nTidy Tuesday Week 9\nTidy Tuesday Week 10\nTidy Tuesday Week 11"
   },
   {
     "objectID": "projects/tidy-tuesday-20250311.html",
