@@ -13,9 +13,9 @@ website:
   site-url: https://hankowens.github.io/
   navbar:
     left:
-      - href: index.qmd
+      - href: index.html
         text: Home
-      - href: ttprojects.qmd
+      - href: ttprojects.html
         text: Projects
 
 format:

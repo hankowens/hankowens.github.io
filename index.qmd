@@ -26,7 +26,7 @@ Here are some pictures of my dog GameBoy, a sato.
 
 ## Projects {#projects}
 
-Check out my coding [projects](ttprojects.qmd)!
+Check out my coding [projects](ttprojects.html)!
 
 
 ## Contact {#contact}
