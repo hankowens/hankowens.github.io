@@ -9,4 +9,4 @@ These are my weekly Tidy Tuesday projects. These are quick coding and data visua
 
 - [Tidy Tuesday Week 9](projects/tidy-tuesday-20250304.html)
 - [Tidy Tuesday Week 10](projects/tidy-tuesday-20250311.html)
-- [Tidy Tuesday Week 11](projects/tidy-tues-wk-11.html)
+- [Tidy Tuesday Week 11](projects/tidy-tues-wk11.html)
