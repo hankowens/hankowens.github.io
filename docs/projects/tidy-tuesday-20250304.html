@@ -122,13 +122,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#long-beach-animal-shelter-data" id="toc-long-beach-animal-shelter-data" class="nav-link active" data-scroll-target="#long-beach-animal-shelter-data">Long Beach Animal Shelter data</a></li>
+  <li><a href="#long-beach-animal-shelter-data" id="toc-long-beach-animal-shelter-data" class="nav-link active" data-scroll-target="#long-beach-animal-shelter-data">Long Beach Animal Shelter data</a>
+  <ul class="collapse">
   <li><a href="#reading-in-the-data" id="toc-reading-in-the-data" class="nav-link" data-scroll-target="#reading-in-the-data">Reading in the data</a></li>
   <li><a href="#cleaning-data" id="toc-cleaning-data" class="nav-link" data-scroll-target="#cleaning-data">Cleaning Data</a></li>
   <li><a href="#inspecting-some-variables" id="toc-inspecting-some-variables" class="nav-link" data-scroll-target="#inspecting-some-variables">Inspecting some variables:</a></li>
   <li><a href="#chi-squared-is-there-a-relationship-btw-intake_condition-outcome_type" id="toc-chi-squared-is-there-a-relationship-btw-intake_condition-outcome_type" class="nav-link" data-scroll-target="#chi-squared-is-there-a-relationship-btw-intake_condition-outcome_type">Chi squared: is there a relationship btw <code>intake_condition</code> &amp; <code>outcome_type</code>?</a></li>
   <li><a href="#chi-squared-checking-the-relationship-btw-animal_type-and-outcome_type" id="toc-chi-squared-checking-the-relationship-btw-animal_type-and-outcome_type" class="nav-link" data-scroll-target="#chi-squared-checking-the-relationship-btw-animal_type-and-outcome_type">Chi Squared: Checking the relationship btw <code>animal_type</code> and <code>outcome_type</code></a></li>
   <li><a href="#chi-squared-checking-the-relationship-btw-animal_type-only-dog-cat-bird-and-outcome_type" id="toc-chi-squared-checking-the-relationship-btw-animal_type-only-dog-cat-bird-and-outcome_type" class="nav-link" data-scroll-target="#chi-squared-checking-the-relationship-btw-animal_type-only-dog-cat-bird-and-outcome_type">Chi Squared: Checking the relationship btw <code>animal_type</code> (ONLY DOG, CAT, BIRD) and <code>outcome_type</code></a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -166,12 +168,11 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="long-beach-animal-shelter-data" class="level2">
-<h2 class="anchored" data-anchor-id="long-beach-animal-shelter-data">Long Beach Animal Shelter data</h2>
+<section id="long-beach-animal-shelter-data" class="level1">
+<h1>Long Beach Animal Shelter data</h1>
 <p>The dataset comes from the City of Long Beach Animal Care Services via the {animalshelter} R package.</p>
-<p>I did some basic dataviz and ran Chi Squared tests on a few variables. Getting back into the swing of things and buffing up on my Chi Squared assumptions and interpretations. Also this is</p>
+<p>I did some basic dataviz and ran Chi Squared tests on a few variables. The instructions said not to do causal analysis. BUT I wanted to practice my Chi Squared assumptions/interpretations. (The data does not meet the assumptions.)</p>
 <p>https://github.com/rfordatascience/tidytuesday/blob/main/data/2025/2025-03-04/readme.md</p>
-</section>
 <section id="reading-in-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="reading-in-the-data">Reading in the data</h2>
 <div class="cell">
@@ -622,6 +623,7 @@ X-squared = 6217.8, df = 14, p-value &lt; 2.2e-16</code></pre>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

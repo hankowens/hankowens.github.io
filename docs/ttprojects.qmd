@@ -1,0 +1,12 @@
+---
+title: "Tidy Tuesday Projects"
+format: html
+---
+
+## Tidy Tuesday {#projects}
+
+These are my weekly Tidy Tuesday projects. These are quick coding and data visualization challenges hosted by the [Data Science Learning Community](https://github.com/rfordatascience/tidytuesday).
+
+- [Tidy Tuesday Week 9](tidy-tuesday-20250304.html)
+- [Tidy Tuesday Week 10](tidy-tuesday-20250311.html)
+- [Tidy Tuesday Week 11](tidy-tues-wk-11.html)
