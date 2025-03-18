@@ -1,59 +1,24 @@
 [
   {
-    "objectID": "projects/tidy-tuesday-20250311.html",
-    "href": "projects/tidy-tuesday-20250311.html",
-    "title": "tidy-tuesday-20250311",
+    "objectID": "projects/tidy-tues-wk11.html",
+    "href": "projects/tidy-tues-wk11.html",
+    "title": "Tidy Tuesday 2025-03-18",
     "section": "",
-    "text": "I can see the tables have different row counts, so let’s investigate that.\nThese are in the films table, but not response table: The NA film is Elemental, according to the release date. I assign the title because i went through the trouble of checking, but there isnt response data.\n\n\n[1] \"Turning Red\" \"Lightyear\"   NA"
+    "text": "From the prompt: This week we’re exploring Palm Trees!\nThe dataset comes from the the PalmTraits 1.0 database via the palmtrees R package by Emil Hvitfeldt.\nPlant traits are critical to plant form and function —including growth, survival and reproduction— and therefore shape fundamental aspects of population and ecosystem dynamics as well as ecosystem services. Here, we present a global species-level compilation of key functional traits for palms (Arecaceae), a plant family with keystone importance in tropical and subtropical ecosystems.\n- How do the sizes of the different species of palms vary across sub families?\n- Which fruit colors occur most often?"
   },
   {
-    "objectID": "projects/tidy-tuesday-20250311.html#data-inspection",
-    "href": "projects/tidy-tuesday-20250311.html#data-inspection",
-    "title": "tidy-tuesday-20250311",
-    "section": "",
-    "text": "I can see the tables have different row counts, so let’s investigate that.\nThese are in the films table, but not response table: The NA film is Elemental, according to the release date. I assign the title because i went through the trouble of checking, but there isnt response data.\n\n\n[1] \"Turning Red\" \"Lightyear\"   NA"
+    "objectID": "projects/tidy-tues-wk11.html#how-do-the-sizes-of-the-different-species-of-palms-vary-across-sub-families",
+    "href": "projects/tidy-tues-wk11.html#how-do-the-sizes-of-the-different-species-of-palms-vary-across-sub-families",
+    "title": "Tidy Tuesday 2025-03-18",
+    "section": "How do the sizes of the different species of palms vary across sub families?",
+    "text": "How do the sizes of the different species of palms vary across sub families?\n\nStem Height\n\n\n\n\n\n\n\n\n\n\n\nNumber of Leaves\n\n\n\n\n\n\n\n\n\n\n\nLength of Leaves/Blades"
   },
   {
-    "objectID": "projects/tidy-tuesday-20250311.html#plotting-select-ratings",
-    "href": "projects/tidy-tuesday-20250311.html#plotting-select-ratings",
-    "title": "tidy-tuesday-20250311",
-    "section": "Plotting Select Ratings",
-    "text": "Plotting Select Ratings\nHere I make a plot comparing the Metacritic and Rotten Tomatoes scores."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Hello"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Henry Owens",
-    "section": "",
-    "text": "Hi! I’m building this site to show some of my data analysis projects. Stay tuned for more!\nHere are some pictures of my dog GameBoy, a sato.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGameBoy!"
-  },
-  {
-    "objectID": "index.html#about",
-    "href": "index.html#about",
-    "title": "Henry Owens",
-    "section": "",
-    "text": "Hi! I’m building this site to show some of my data analysis projects. Stay tuned for more!\nHere are some pictures of my dog GameBoy, a sato.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGameBoy!"
-  },
-  {
-    "objectID": "index.html#projects",
-    "href": "index.html#projects",
-    "title": "Henry Owens",
-    "section": "Projects",
-    "text": "Projects\nCheck out my projects!"
-  },
-  {
-    "objectID": "index.html#contact",
-    "href": "index.html#contact",
-    "title": "Henry Owens",
-    "section": "Contact",
-    "text": "Contact\nReach me at henry.b.owens@gmail.com.\nConnect:\nLinkedIn | GitHub\n\n© 2025 Henry Owens"
+    "objectID": "projects/tidy-tues-wk11.html#which-fruit-colors-occur-most-often",
+    "href": "projects/tidy-tues-wk11.html#which-fruit-colors-occur-most-often",
+    "title": "Tidy Tuesday 2025-03-18",
+    "section": "Which fruit colors occur most often?",
+    "text": "Which fruit colors occur most often?"
   },
   {
     "objectID": "projects/tidy-tuesday-20250304.html",
@@ -103,5 +68,61 @@
     "title": "Tidy Tuesday 2025-03-04",
     "section": "",
     "text": "I don’t think think this really fits the Chi squared test requirements, since the animal type and outcome are not really independent. Birds are probably pigeons and wild birds that get injured/fly into buildings are not ever going to be adopted.\n\n\n\n    Pearson's Chi-squared test\n\ndata:  contingency_table3\nX-squared = 6217.8, df = 14, p-value &lt; 2.2e-16"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Henry Owens",
+    "section": "",
+    "text": "Hi! I’m building this site to show some of my data analysis projects. Stay tuned for more!\nHere are some pictures of my dog GameBoy, a sato."
+  },
+  {
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Henry Owens",
+    "section": "",
+    "text": "Hi! I’m building this site to show some of my data analysis projects. Stay tuned for more!\nHere are some pictures of my dog GameBoy, a sato."
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Henry Owens",
+    "section": "Projects",
+    "text": "Projects\nCheck out my coding projects!"
+  },
+  {
+    "objectID": "index.html#contact",
+    "href": "index.html#contact",
+    "title": "Henry Owens",
+    "section": "Contact",
+    "text": "Contact\nReach me at henry.b.owens@gmail.com.\nConnect:\nLinkedIn | GitHub\n\n© 2025 Henry Owens"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Hello"
+  },
+  {
+    "objectID": "projects/tidy-tuesday-20250311.html",
+    "href": "projects/tidy-tuesday-20250311.html",
+    "title": "tidy-tuesday-20250311",
+    "section": "",
+    "text": "I can see the tables have different row counts, so let’s investigate that.\nThese are in the films table, but not response table: The NA film is Elemental, according to the release date. I assign the title because i went through the trouble of checking, but there isnt response data.\n\n\n[1] \"Turning Red\" \"Lightyear\"   NA"
+  },
+  {
+    "objectID": "projects/tidy-tuesday-20250311.html#data-inspection",
+    "href": "projects/tidy-tuesday-20250311.html#data-inspection",
+    "title": "tidy-tuesday-20250311",
+    "section": "",
+    "text": "I can see the tables have different row counts, so let’s investigate that.\nThese are in the films table, but not response table: The NA film is Elemental, according to the release date. I assign the title because i went through the trouble of checking, but there isnt response data.\n\n\n[1] \"Turning Red\" \"Lightyear\"   NA"
+  },
+  {
+    "objectID": "projects/tidy-tuesday-20250311.html#plotting-select-ratings",
+    "href": "projects/tidy-tuesday-20250311.html#plotting-select-ratings",
+    "title": "tidy-tuesday-20250311",
+    "section": "Plotting Select Ratings",
+    "text": "Plotting Select Ratings\nHere I make a plot comparing the Metacritic and Rotten Tomatoes scores."
   }
 ]

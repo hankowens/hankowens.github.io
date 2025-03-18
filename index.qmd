@@ -10,17 +10,18 @@ Here are some pictures of my dog GameBoy, a sato.
 
 ::: {layout-ncol=2}
 
-![](images/gb1.jpg){width=50%}
+![](images/young-gb.jpeg)
 
-![](images/gb2.jpg){width=50%}
+![](images/gb1.jpg)
 
-![](images/gb3.jpg){width=50%}
+![](images/gb2.jpeg)
 
-![](images/gb4.jpg){width=50%}
+![](images/gb3.jpeg)
 
-![](images/gb5.jpg){width=50%}
+![](images/gb5.jpeg)
 
-GameBoy!
+![](images/gb-hd.jpeg)
+
 :::
 
 ## Projects {#projects}

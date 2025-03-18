@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://hankowens.github.io/projects/tidy-tuesday-20250311.html</loc>
-    <lastmod>2025-03-13T19:20:04.727Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hankowens.github.io/about.html</loc>
-    <lastmod>2025-03-18T18:32:57.866Z</lastmod>
-  </url>
-  <url>
-    <loc>https://hankowens.github.io/index.html</loc>
-    <lastmod>2025-03-18T18:33:32.150Z</lastmod>
+    <loc>https://hankowens.github.io/projects/tidy-tues-wk11.html</loc>
+    <lastmod>2025-03-18T17:50:22.539Z</lastmod>
   </url>
   <url>
     <loc>https://hankowens.github.io/projects/tidy-tuesday-20250304.html</loc>
     <lastmod>2025-03-17T21:17:32.551Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hankowens.github.io/index.html</loc>
+    <lastmod>2025-03-18T19:01:56.168Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hankowens.github.io/about.html</loc>
+    <lastmod>2025-03-18T18:46:30.388Z</lastmod>
+  </url>
+  <url>
+    <loc>https://hankowens.github.io/projects/tidy-tuesday-20250311.html</loc>
+    <lastmod>2025-03-13T19:20:04.727Z</lastmod>
   </url>
 </urlset>
