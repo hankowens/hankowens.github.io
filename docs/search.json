@@ -1,24 +1,87 @@
 [
   {
-    "objectID": "projects/tidy-tues-wk11.html",
-    "href": "projects/tidy-tues-wk11.html",
+    "objectID": "projects/tidy-tuesday-20250415.html",
+    "href": "projects/tidy-tuesday-20250415.html",
+    "title": "Tidy Tuesday Penguins",
+    "section": "",
+    "text": "This week is looking at the palmerpenguins dataset. (I missed a few weeks.)\nI did some data viz looking at differences in physical features between penguins from different species and islands. Before we look at the data… here are the birds!\nAdélie penguin!\n\nChinstrap penguin!\n\nGentoo penguin!\n\nHere is a peak at the data:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\nAdelie\nTorgersen\n39.1\n18.7\n181\n3750\nmale\n2007\n\n\nAdelie\nTorgersen\n39.5\n17.4\n186\n3800\nfemale\n2007\n\n\nAdelie\nTorgersen\n40.3\n18.0\n195\n3250\nfemale\n2007\n\n\nAdelie\nTorgersen\nNA\nNA\nNA\nNA\nNA\n2007\n\n\nAdelie\nTorgersen\n36.7\n19.3\n193\n3450\nfemale\n2007\n\n\nAdelie\nTorgersen\n39.3\n20.6\n190\n3650\nmale\n2007\n\n\n\n\n\nBreaking down Species and Islands\n\n\n\n\n\nisland\nspecies\ncount\n\n\n\n\nBiscoe\nAdelie\n44\n\n\nBiscoe\nGentoo\n124\n\n\nDream\nAdelie\n56\n\n\nDream\nChinstrap\n68\n\n\nTorgersen\nAdelie\n52\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAdelie penguins have similar features across islands.\n\n\n\n\n\n\n\n\n\n\n\n\nFinally a look at the distribution of penguin weight across islands and species with medians for reference. Only Adélie birds were observed on all three islands. The mean weights are very similar, but the typical Adélie on Dream Island is a little bit smaller."
+  },
+  {
+    "objectID": "projects/tidy-tuesday-20250415.html#adelie-penguins-across-islands",
+    "href": "projects/tidy-tuesday-20250415.html#adelie-penguins-across-islands",
+    "title": "Tidy Tuesday Penguins",
+    "section": "",
+    "text": "Adelie penguins have similar features across islands."
+  },
+  {
+    "objectID": "projects/tidy-tuesday-20250415.html#penguin-body-mass",
+    "href": "projects/tidy-tuesday-20250415.html#penguin-body-mass",
+    "title": "Tidy Tuesday Penguins",
+    "section": "",
+    "text": "Finally a look at the distribution of penguin weight across islands and species with medians for reference. Only Adélie birds were observed on all three islands. The mean weights are very similar, but the typical Adélie on Dream Island is a little bit smaller."
+  },
+  {
+    "objectID": "projects/tidy-tuesday-20250311.html",
+    "href": "projects/tidy-tuesday-20250311.html",
     "title": "Tidy Tuesday Week 10",
     "section": "",
-    "text": "From the prompt: This week we’re exploring Palm Trees!\nThe dataset comes from the the PalmTraits 1.0 database via the palmtrees R package by Emil Hvitfeldt.\nPlant traits are critical to plant form and function —including growth, survival and reproduction— and therefore shape fundamental aspects of population and ecosystem dynamics as well as ecosystem services. Here, we present a global species-level compilation of key functional traits for palms (Arecaceae), a plant family with keystone importance in tropical and subtropical ecosystems.\n- How do the sizes of the different species of palms vary across sub families?\n- Which fruit colors occur most often?"
+    "text": "I can see the tables have different row counts, so let’s investigate that.\nThese are in the films table, but not response table: The NA film is Elemental, according to the release date. I assign the title because i went through the trouble of checking, but there isnt response data.\n\n\n[1] \"Turning Red\" \"Lightyear\"   NA"
   },
   {
-    "objectID": "projects/tidy-tues-wk11.html#how-do-the-sizes-of-the-different-species-of-palms-vary-across-sub-families",
-    "href": "projects/tidy-tues-wk11.html#how-do-the-sizes-of-the-different-species-of-palms-vary-across-sub-families",
+    "objectID": "projects/tidy-tuesday-20250311.html#data-inspection",
+    "href": "projects/tidy-tuesday-20250311.html#data-inspection",
     "title": "Tidy Tuesday Week 10",
-    "section": "How do the sizes of the different species of palms vary across sub families?",
-    "text": "How do the sizes of the different species of palms vary across sub families?\n\nStem Height\n\n\n\n\n\n\n\n\n\n\n\nNumber of Leaves\n\n\n\n\n\n\n\n\n\n\n\nLength of Leaves/Blades"
+    "section": "",
+    "text": "I can see the tables have different row counts, so let’s investigate that.\nThese are in the films table, but not response table: The NA film is Elemental, according to the release date. I assign the title because i went through the trouble of checking, but there isnt response data.\n\n\n[1] \"Turning Red\" \"Lightyear\"   NA"
   },
   {
-    "objectID": "projects/tidy-tues-wk11.html#which-fruit-colors-occur-most-often",
-    "href": "projects/tidy-tues-wk11.html#which-fruit-colors-occur-most-often",
+    "objectID": "projects/tidy-tuesday-20250311.html#plotting-select-ratings",
+    "href": "projects/tidy-tuesday-20250311.html#plotting-select-ratings",
     "title": "Tidy Tuesday Week 10",
-    "section": "Which fruit colors occur most often?",
-    "text": "Which fruit colors occur most often?"
+    "section": "Plotting Select Ratings",
+    "text": "Plotting Select Ratings\nHere I make a plot comparing the Metacritic and Rotten Tomatoes scores."
+  },
+  {
+    "objectID": "ttprojects.html",
+    "href": "ttprojects.html",
+    "title": "Tidy Tuesday Projects",
+    "section": "",
+    "text": "These are my weekly Tidy Tuesday projects. These are quick coding and data visualization challenges hosted by the Data Science Learning Community.\n\nTidy Tuesday Week 9\nTidy Tuesday Week 10\nTidy Tuesday Week 11\nTidy Tuesday Week 15"
+  },
+  {
+    "objectID": "ttprojects.html#projects",
+    "href": "ttprojects.html#projects",
+    "title": "Tidy Tuesday Projects",
+    "section": "",
+    "text": "These are my weekly Tidy Tuesday projects. These are quick coding and data visualization challenges hosted by the Data Science Learning Community.\n\nTidy Tuesday Week 9\nTidy Tuesday Week 10\nTidy Tuesday Week 11\nTidy Tuesday Week 15"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Henry Owens",
+    "section": "",
+    "text": "Hi! I’m building this site to show some of my data analysis projects. Stay tuned for more!"
+  },
+  {
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Henry Owens",
+    "section": "",
+    "text": "Hi! I’m building this site to show some of my data analysis projects. Stay tuned for more!"
+  },
+  {
+    "objectID": "index.html#projects",
+    "href": "index.html#projects",
+    "title": "Henry Owens",
+    "section": "Projects",
+    "text": "Projects\nCheck out my coding projects!"
+  },
+  {
+    "objectID": "index.html#contact",
+    "href": "index.html#contact",
+    "title": "Henry Owens",
+    "section": "Contact",
+    "text": "Contact\nReach me at henry.b.owens@gmail.com.\nConnect:\nLinkedIn | GitHub\nAnd…here are some pictures of my dog GameBoy, a sato.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n© 2025 Henry Owens"
   },
   {
     "objectID": "projects/tidy-tuesday-20250304.html",
@@ -70,66 +133,24 @@
     "text": "I don’t think think this really fits the Chi squared test requirements, since the animal type and outcome are not really independent. Birds are probably pigeons and wild birds that get injured/fly into buildings are not ever going to be adopted.\n\n\n\n    Pearson's Chi-squared test\n\ndata:  contingency_table3\nX-squared = 6217.8, df = 14, p-value &lt; 2.2e-16"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Henry Owens",
-    "section": "",
-    "text": "Hi! I’m building this site to show some of my data analysis projects. Stay tuned for more!\nHere are some pictures of my dog GameBoy, a sato."
-  },
-  {
-    "objectID": "index.html#about",
-    "href": "index.html#about",
-    "title": "Henry Owens",
-    "section": "",
-    "text": "Hi! I’m building this site to show some of my data analysis projects. Stay tuned for more!\nHere are some pictures of my dog GameBoy, a sato."
-  },
-  {
-    "objectID": "index.html#projects",
-    "href": "index.html#projects",
-    "title": "Henry Owens",
-    "section": "Projects",
-    "text": "Projects\nCheck out my coding projects!"
-  },
-  {
-    "objectID": "index.html#contact",
-    "href": "index.html#contact",
-    "title": "Henry Owens",
-    "section": "Contact",
-    "text": "Contact\nReach me at henry.b.owens@gmail.com.\nConnect:\nLinkedIn | GitHub\n\n© 2025 Henry Owens"
-  },
-  {
-    "objectID": "ttprojects.html",
-    "href": "ttprojects.html",
-    "title": "Tidy Tuesday Projects",
-    "section": "",
-    "text": "These are my weekly Tidy Tuesday projects. These are quick coding and data visualization challenges hosted by the Data Science Learning Community.\n\nTidy Tuesday Week 9\nTidy Tuesday Week 10\nTidy Tuesday Week 11"
-  },
-  {
-    "objectID": "ttprojects.html#projects",
-    "href": "ttprojects.html#projects",
-    "title": "Tidy Tuesday Projects",
-    "section": "",
-    "text": "These are my weekly Tidy Tuesday projects. These are quick coding and data visualization challenges hosted by the Data Science Learning Community.\n\nTidy Tuesday Week 9\nTidy Tuesday Week 10\nTidy Tuesday Week 11"
-  },
-  {
-    "objectID": "projects/tidy-tuesday-20250311.html",
-    "href": "projects/tidy-tuesday-20250311.html",
+    "objectID": "projects/tidy-tues-wk11.html",
+    "href": "projects/tidy-tues-wk11.html",
     "title": "Tidy Tuesday Week 10",
     "section": "",
-    "text": "I can see the tables have different row counts, so let’s investigate that.\nThese are in the films table, but not response table: The NA film is Elemental, according to the release date. I assign the title because i went through the trouble of checking, but there isnt response data.\n\n\n[1] \"Turning Red\" \"Lightyear\"   NA"
+    "text": "From the prompt: This week we’re exploring Palm Trees!\nThe dataset comes from the the PalmTraits 1.0 database via the palmtrees R package by Emil Hvitfeldt.\nPlant traits are critical to plant form and function —including growth, survival and reproduction— and therefore shape fundamental aspects of population and ecosystem dynamics as well as ecosystem services. Here, we present a global species-level compilation of key functional traits for palms (Arecaceae), a plant family with keystone importance in tropical and subtropical ecosystems.\n- How do the sizes of the different species of palms vary across sub families?\n- Which fruit colors occur most often?"
   },
   {
-    "objectID": "projects/tidy-tuesday-20250311.html#data-inspection",
-    "href": "projects/tidy-tuesday-20250311.html#data-inspection",
+    "objectID": "projects/tidy-tues-wk11.html#how-do-the-sizes-of-the-different-species-of-palms-vary-across-sub-families",
+    "href": "projects/tidy-tues-wk11.html#how-do-the-sizes-of-the-different-species-of-palms-vary-across-sub-families",
     "title": "Tidy Tuesday Week 10",
-    "section": "",
-    "text": "I can see the tables have different row counts, so let’s investigate that.\nThese are in the films table, but not response table: The NA film is Elemental, according to the release date. I assign the title because i went through the trouble of checking, but there isnt response data.\n\n\n[1] \"Turning Red\" \"Lightyear\"   NA"
+    "section": "How do the sizes of the different species of palms vary across sub families?",
+    "text": "How do the sizes of the different species of palms vary across sub families?\n\nStem Height\n\n\n\n\n\n\n\n\n\n\n\nNumber of Leaves\n\n\n\n\n\n\n\n\n\n\n\nLength of Leaves/Blades"
   },
   {
-    "objectID": "projects/tidy-tuesday-20250311.html#plotting-select-ratings",
-    "href": "projects/tidy-tuesday-20250311.html#plotting-select-ratings",
+    "objectID": "projects/tidy-tues-wk11.html#which-fruit-colors-occur-most-often",
+    "href": "projects/tidy-tues-wk11.html#which-fruit-colors-occur-most-often",
     "title": "Tidy Tuesday Week 10",
-    "section": "Plotting Select Ratings",
-    "text": "Plotting Select Ratings\nHere I make a plot comparing the Metacritic and Rotten Tomatoes scores."
+    "section": "Which fruit colors occur most often?",
+    "text": "Which fruit colors occur most often?"
   }
 ]

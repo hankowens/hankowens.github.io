@@ -7,6 +7,7 @@ project:
     - projects/tidy-tuesday-20250304.Rmd
     - projects/tidy-tuesday-20250311.Rmd
     - projects/tidy-tues-wk11.qmd
+    - projects/tidy-tuesday-20250415.Rmd
 
 website:
   title: "Henry Owens"

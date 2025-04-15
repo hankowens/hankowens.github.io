@@ -6,7 +6,20 @@ title: "Henry Owens"
 
 Hi! I'm building this site to show some of my data analysis projects. Stay tuned for more!
 
-Here are some pictures of my dog GameBoy, a sato.  
+## Projects {#projects}
+
+Check out my coding [projects](ttprojects.html)!
+
+## Contact {#contact}
+
+Reach me at [henry.b.owens@gmail.com](mailto:henry.b.owens@gmail.com).
+
+Connect:  
+[LinkedIn](https://www.linkedin.com/in/henry-owens-77980755/) | 
+[GitHub](https://github.com/hankowens)
+
+
+And...here are some pictures of my dog GameBoy, a sato.  
 
 ::: {layout-ncol=2}
 
@@ -23,19 +36,6 @@ Here are some pictures of my dog GameBoy, a sato.
 ![](images/gb-hd.jpeg)
 
 :::
-
-## Projects {#projects}
-
-Check out my coding [projects](ttprojects.html)!
-
-
-## Contact {#contact}
-
-Reach me at [henry.b.owens@gmail.com](mailto:henry.b.owens@gmail.com).
-
-Connect:  
-[LinkedIn](https://www.linkedin.com/in/henry-owens-77980755/) | 
-[GitHub](https://github.com/hankowens)
 
 ---
 
