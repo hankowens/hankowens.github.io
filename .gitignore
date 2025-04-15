@@ -1,2 +1,4 @@
 /.quarto/
 .Rproj.user
+# Python virtual environment
+venv/
